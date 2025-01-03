@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://44cqefxyt2jk"
-path="res://.godot/imported/shirt-sheet.png-82e52715eacbe6a1339f42f8e78a8f56.ctex"
+uid="uid://be81e15sh5iyy"
+path="res://.godot/imported/body-sheet.png-7fd20f828b985c40b5da75fa5b51d225.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/clothing/shirt-sheet.png"
-dest_files=["res://.godot/imported/shirt-sheet.png-82e52715eacbe6a1339f42f8e78a8f56.ctex"]
+source_file="res://assets/entity/player/body/body-sheet.png"
+dest_files=["res://.godot/imported/body-sheet.png-7fd20f828b985c40b5da75fa5b51d225.ctex"]
 
 [params]
 

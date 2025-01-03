@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ckuil6rq16f"
-path="res://.godot/imported/head-sheet.png-1809540e8a727ab5e119235c42effb59.ctex"
+uid="uid://bagjaxitiyg6u"
+path="res://.godot/imported/hair-sheet.png-7f7987d91241c37151e253d64eb63604.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/body/head-sheet.png"
-dest_files=["res://.godot/imported/head-sheet.png-1809540e8a727ab5e119235c42effb59.ctex"]
+source_file="res://assets/entity/player/clothing/hair-sheet.png"
+dest_files=["res://.godot/imported/hair-sheet.png-7f7987d91241c37151e253d64eb63604.ctex"]
 
 [params]
 

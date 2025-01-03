@@ -5,6 +5,10 @@ extends Control
 @onready var shirt = $"../Skeleton/Shirt"
 @onready var pants = $"../Skeleton/Pants"
 @onready var shoes = $"../Skeleton/Shoes"
+@onready var haircheck = $ColorRect/HairCheck
+@onready var shirtcheck = $ColorRect/ShirtCheck
+@onready var pantscheck = $ColorRect/PantsCheck
+@onready var shoescheck = $ColorRect/ShoesCheck
 
 var is_open = false
 
@@ -18,6 +22,12 @@ func _process(delta):
 			close()
 		else:
 			open()
+	elif Input.is_action_just_pressed("getnaked"):
+		print("NAKED TIME!!!!!!!!!")
+		haircheck.button_pressed = false
+		shirtcheck.button_pressed = false
+		pantscheck.button_pressed = false
+		shoescheck.button_pressed = false
 
 func open():
 	visible = true
@@ -29,7 +39,6 @@ func close():
 
 # Updates de sprite based pon di global style weh select
 func update_sprite():
-	print("updating sprite")
 	hair.texture = Global.hair_collection[Global.selected_hair]
 	shirt.texture = Global.shirt_collection[Global.selected_shirt]
 	pants.texture = Global.pants_collection[Global.selected_pants]

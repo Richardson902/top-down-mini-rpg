@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://bnmeel6sct6ng"]
 
-[ext_resource type="Texture2D" uid="uid://be81e15sh5iyy" path="res://assets/sprites/character/body/body-sheet.png" id="1_d8tdn"]
+[ext_resource type="Texture2D" uid="uid://be81e15sh5iyy" path="res://assets/entity/player/body/body-sheet.png" id="1_d8tdn"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_j8w18"]
-[ext_resource type="Texture2D" uid="uid://d0ckuil6rq16f" path="res://assets/sprites/character/body/head-sheet.png" id="2_pfh13"]
-[ext_resource type="Texture2D" uid="uid://bagjaxitiyg6u" path="res://assets/sprites/character/clothing/hair-sheet.png" id="3_0as8i"]
-[ext_resource type="Texture2D" uid="uid://44cqefxyt2jk" path="res://assets/sprites/character/clothing/shirt-sheet.png" id="4_lor33"]
-[ext_resource type="Texture2D" uid="uid://kum1foh7w1j1" path="res://assets/sprites/character/clothing/pants-sheet.png" id="5_ntlje"]
-[ext_resource type="Texture2D" uid="uid://blr584bbe1bhk" path="res://assets/sprites/character/clothing/shoes-sheet.png" id="6_xmhyv"]
+[ext_resource type="Texture2D" uid="uid://d0ckuil6rq16f" path="res://assets/entity/player/body/head-sheet.png" id="2_pfh13"]
+[ext_resource type="Texture2D" uid="uid://bagjaxitiyg6u" path="res://assets/entity/player/clothing/hair-sheet.png" id="3_0as8i"]
+[ext_resource type="Texture2D" uid="uid://44cqefxyt2jk" path="res://assets/entity/player/clothing/shirt-sheet.png" id="4_lor33"]
+[ext_resource type="Texture2D" uid="uid://kum1foh7w1j1" path="res://assets/entity/player/clothing/pants-sheet.png" id="5_ntlje"]
+[ext_resource type="Texture2D" uid="uid://blr584bbe1bhk" path="res://assets/entity/player/clothing/shoes-sheet.png" id="6_xmhyv"]
 [ext_resource type="PackedScene" uid="uid://dndp6cnwvw0nt" path="res://scenes/customizeui.tscn" id="8_ut0kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74ip0"]
@@ -493,36 +493,42 @@ texture_filter = 1
 texture = ExtResource("1_d8tdn")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="Head" type="Sprite2D" parent="Skeleton"]
 texture_filter = 1
 texture = ExtResource("2_pfh13")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="Hair" type="Sprite2D" parent="Skeleton"]
 texture_filter = 1
 texture = ExtResource("3_0as8i")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="Shirt" type="Sprite2D" parent="Skeleton"]
 texture_filter = 1
 texture = ExtResource("4_lor33")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="Pants" type="Sprite2D" parent="Skeleton"]
 texture_filter = 1
 texture = ExtResource("5_ntlje")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="Shoes" type="Sprite2D" parent="Skeleton"]
 texture_filter = 1
 texture = ExtResource("6_xmhyv")
 hframes = 4
 vframes = 6
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
