@@ -1,79 +1,61 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
+var cardinal_direction = Vector2.DOWN
+var direction = Vector2.ZERO
+var move_speed = 100
+var state : String = "idle" # TODO: Implement state machine
 
-const speed = 100 # Sets default speed
-var current_dir = "none" # To keep track of direction for anims
-var sprites = [] # Array of our Sprite2D Nodes
+@onready var skeleton = $Skeleton
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Populate the array with each Sprite 2D Node in our player Node
-func _ready():
-	sprites.append($Skeleton/Body)
-	sprites.append($Skeleton/Head)
-	sprites.append($Skeleton/Hair)
-	sprites.append($Skeleton/Shirt)
-	sprites.append($Skeleton/Pants)
-	sprites.append($Skeleton/Shoes)
+func _ready() -> void:
+	pass
 
-# Calls playermovement on physics process
-func _physics_process(delta):
-	player_movement(delta)
+func _process(delta: float) -> void:
+	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
+	velocity = direction * move_speed
 	
-func player_movement(delta):
-	if Input.is_action_pressed("right"):
-		current_dir = "right" # Sets the current direction based on direction we are moving
-		play_animation(1) # Play animation and passes through 1 which means moving (ugly way to do it but I'm running out of time)
-		velocity.x = speed # Sets speed to right direction (positive x)
-		velocity.y = 0 # Sets up and down movement to zero (makes it so you can't move two directions at once ffs have to fix)
-	elif Input.is_action_pressed("left"):
-		current_dir = "left"
-		play_animation(1)
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("down"):
-		current_dir = "down"
-		play_animation(1)
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("up"):
-		current_dir = "up"
-		play_animation(1)
-		velocity.y = -speed
-		velocity.x = 0
+	if setState() == true || setDirection() == true: # If anything changed, update animations to reflect
+		updateAnimation()
+	
+func _physics_process(delta: float) -> void:
+	move_and_slide()
+
+func setDirection() -> bool:
+	var new_direction : Vector2 = cardinal_direction
+	if direction == Vector2.ZERO:
+		return false # Return if player is standing still
+		
+	if direction.x != 0:
+		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+	elif direction.y != 0:
+		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	
+	if new_direction == cardinal_direction:
+		return false # Return if direction hasn't changed
+		
+	cardinal_direction = new_direction
+	skeleton.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1 # Flips sprite via scaling
+	
+	return true
+
+func setState() -> bool:
+	var new_state : String = "idle" if direction == Vector2.ZERO else "walk"
+	if new_state == state:
+		return false # Return if state hasn't changed
+	state = new_state
+	return true
+
+func animDirection() -> String:
+	# Checks cardinal direction and returns string based on direction to pass to animation player
+	if cardinal_direction == Vector2.DOWN:
+		return "down"
+	elif cardinal_direction == Vector2.UP:
+		return "up"
 	else:
-		play_animation(0) # If not moving call this and pass 0 to play idle animation
-		velocity.x = 0 # Set velocity to 0 because we are not moving
-		velocity.y = 0
-		
-	move_and_slide() # Yippee
-
-func play_animation(movement): # Handles the playing of animations
-	var direction = current_dir
-	var animation_player = $AnimationPlayer # Our Animation Player Node
+		return "side"
 	
-	if direction == "right":
-		flip_player(false) # Don't flip H if we going right
-		if movement == 1: # If moving play the walk anim
-			animation_player.play("walk_side")
-		elif movement == 0: # If not moving play the idle anim
-			animation_player.play("idle_side")
-	elif direction == "left":
-		flip_player(true)
-		if movement == 1:
-			animation_player.play("walk_side")
-		elif movement == 0:
-			animation_player.play("idle_side")
-	elif direction == "up":
-		if movement == 1:
-			animation_player.play("walk_back")
-		elif movement == 0:
-			animation_player.play("idle_back")
-	elif direction == "down":
-		if movement == 1:
-			animation_player.play("walk_front")
-		elif movement == 0:
-			animation_player.play("idle_front")
-			
-func flip_player(flip: bool): # Flips the sprites in the array
-	for sprite in sprites:
-		sprite.flip_h = flip
-		
+func updateAnimation() -> void:
+	animation_player.play(state + "_" + animDirection()) # Play anim based on the state and direction
+	pass
+	
