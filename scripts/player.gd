@@ -2,21 +2,16 @@ class_name Player extends CharacterBody2D
 
 var cardinal_direction = Vector2.DOWN
 var direction = Vector2.ZERO
-var move_speed = 100
-var state : String = "idle" # TODO: Implement state machine
 
 @onready var skeleton = $Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var state_machine: PlayerStateMachine = $StateMachine
 
 func _ready() -> void:
-	pass
+	state_machine.initialize(self)
 
 func _process(delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
-	velocity = direction * move_speed
-	
-	if setState() == true || setDirection() == true: # If anything changed, update animations to reflect
-		updateAnimation()
 	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -39,13 +34,6 @@ func setDirection() -> bool:
 	
 	return true
 
-func setState() -> bool:
-	var new_state : String = "idle" if direction == Vector2.ZERO else "walk"
-	if new_state == state:
-		return false # Return if state hasn't changed
-	state = new_state
-	return true
-
 func animDirection() -> String:
 	# Checks cardinal direction and returns string based on direction to pass to animation player
 	if cardinal_direction == Vector2.DOWN:
@@ -55,7 +43,7 @@ func animDirection() -> String:
 	else:
 		return "side"
 	
-func updateAnimation() -> void:
+func updateAnimation(state: String) -> void:
 	animation_player.play(state + "_" + animDirection()) # Play anim based on the state and direction
 	pass
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnmeel6sct6ng"]
+[gd_scene load_steps=20 format=3 uid="uid://bnmeel6sct6ng"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1pgh5"]
 [ext_resource type="Texture2D" uid="uid://be81e15sh5iyy" path="res://assets/entity/player/body/body-sheet.png" id="1_d8tdn"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://kum1foh7w1j1" path="res://assets/entity/player/clothing/pants-sheet.png" id="5_ntlje"]
 [ext_resource type="Texture2D" uid="uid://blr584bbe1bhk" path="res://assets/entity/player/clothing/shoes-sheet.png" id="6_xmhyv"]
 [ext_resource type="PackedScene" uid="uid://dndp6cnwvw0nt" path="res://scenes/customizeui.tscn" id="8_ut0kn"]
+[ext_resource type="Script" path="res://scripts/player_state_machine.gd" id="9_k1vn5"]
+[ext_resource type="Script" path="res://scripts/state_idle.gd" id="10_s3dge"]
+[ext_resource type="Script" path="res://scripts/state_walk.gd" id="11_a0fdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74ip0"]
 size = Vector2(15, 23)
@@ -479,7 +482,7 @@ _data = {
 "walk_up": SubResource("Animation_fy870")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -12)
 script = ExtResource("1_1pgh5")
 
@@ -540,3 +543,12 @@ libraries = {
 }
 
 [node name="customizeui" parent="." instance=ExtResource("8_ut0kn")]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_k1vn5")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("10_s3dge")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("11_a0fdc")
