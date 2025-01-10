@@ -32,7 +32,7 @@ var shoes_collection = {
 # Selected values
 var selected_head = "01"
 var selected_body = "01"
-var selected_hair = "none"
-var selected_shirt = "none"
-var selected_pants = "none"
-var selected_shoes = "none"
+var selected_hair = "01"
+var selected_shirt = "01"
+var selected_pants = "01"
+var selected_shoes = "01"

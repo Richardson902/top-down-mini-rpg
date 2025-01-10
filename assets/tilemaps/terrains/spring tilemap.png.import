@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csm771wx6t64k"
-path="res://.godot/imported/TileSet.png-04b58ef876e2fae4f4ddaacd6f198d70.ctex"
+uid="uid://bdf6okggj7ncw"
+path="res://.godot/imported/spring tilemap.png-10aeaa9853a4f6d631a20c29af43bb2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/TileSet.png"
-dest_files=["res://.godot/imported/TileSet.png-04b58ef876e2fae4f4ddaacd6f198d70.ctex"]
+source_file="res://assets/tilemaps/terrains/spring tilemap.png"
+dest_files=["res://.godot/imported/spring tilemap.png-10aeaa9853a4f6d631a20c29af43bb2a.ctex"]
 
 [params]
 
