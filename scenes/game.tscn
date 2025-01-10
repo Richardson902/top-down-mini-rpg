@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtqve5of8d3l5"]
+[gd_scene load_steps=2 format=3 uid="uid://dtqve5of8d3l5"]
 
-[ext_resource type="PackedScene" uid="uid://fy8x05p4cwy8" path="res://scenes/homebase.tscn" id="2_3i4sw"]
 [ext_resource type="PackedScene" uid="uid://bnmeel6sct6ng" path="res://scenes/player.tscn" id="2_phbkw"]
 
 [node name="Game" type="Node2D"]
@@ -8,5 +7,3 @@ y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("2_phbkw")]
 collision_mask = 16
-
-[node name="Homebase" parent="." instance=ExtResource("2_3i4sw")]
