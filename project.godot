@@ -23,7 +23,7 @@ Global="*res://scripts/global.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
+window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
@@ -84,6 +84,11 @@ zoom_out={
 2d_physics/layer_1="Player"
 2d_physics/layer_5="Walls"
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

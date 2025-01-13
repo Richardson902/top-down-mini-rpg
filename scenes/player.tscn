@@ -494,10 +494,6 @@ script = ExtResource("1_1pgh5")
 position = Vector2(0.5, 2.42)
 shape = SubResource("CircleShape2D_3vb8y")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_speed = 30.0
-script = ExtResource("2_aknpy")
-
 [node name="Skeleton" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="Skeleton"]
@@ -558,3 +554,15 @@ script = ExtResource("10_s3dge")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("11_a0fdc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -352
+limit_top = -224
+limit_right = 368
+limit_bottom = 224
+position_smoothing_speed = 15.0
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("2_aknpy")

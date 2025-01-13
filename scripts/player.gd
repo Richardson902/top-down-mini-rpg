@@ -9,7 +9,7 @@ var direction = Vector2.ZERO
 
 func _ready() -> void:
 	state_machine.initialize(self)
-	#Engine.max_fps = 144
+	Engine.max_fps = 60
 
 func _process(delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
