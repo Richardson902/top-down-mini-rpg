@@ -16,5 +16,5 @@ func _input(event: InputEvent) -> void:
 	target_zoom.x = clamp(target_zoom.x, min_zoom, max_zoom)
 	target_zoom.y = clamp(target_zoom.y, min_zoom, max_zoom)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	zoom = lerp(zoom, target_zoom, zoom_speed)

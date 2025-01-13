@@ -11,10 +11,10 @@ func _ready() -> void:
 	state_machine.initialize(self)
 	Engine.max_fps = 60
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func setDirection() -> bool:
