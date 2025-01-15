@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0myomtgxxfdf"]
 
-[ext_resource type="Script" path="res://scenes/interactions/door.gd" id="1_tqu43"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_tqu43"]
 [ext_resource type="Texture2D" uid="uid://cquk3hvnktbd5" path="res://assets/tilemaps/objects/summer and spring items.png" id="2_o1j3s"]
 [ext_resource type="PackedScene" uid="uid://c3lwm8mgkb5yt" path="res://scenes/interactions/interactable.tscn" id="3_6iro5"]
 
@@ -29,3 +29,4 @@ interact_name = "Unlock Door"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_pbwi5")
+debug_color = Color(0, 0.642016, 0.324845, 0.42)

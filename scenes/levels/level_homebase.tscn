@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=7 format=4 uid="uid://cd5c43aauwjt5"]
 
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://assets/tilemaps/terrains/spring tilemap.png" id="1_ymkwc"]
 [ext_resource type="Texture2D" uid="uid://cquk3hvnktbd5" path="res://assets/tilemaps/objects/summer and spring items.png" id="2_5ms0d"]
-[ext_resource type="PackedScene" uid="uid://bnmeel6sct6ng" path="res://scenes/player.tscn" id="3_hdkj0"]
 [ext_resource type="PackedScene" uid="uid://0myomtgxxfdf" path="res://scenes/interactions/door.tscn" id="4_5yvlf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
@@ -322,7 +321,7 @@ physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_sbrg2")
 sources/1 = SubResource("TileSetAtlasSource_igjhq")
 
-[node name="Level0" type="Node2D"]
+[node name="level_homebase" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Environment" type="Node2D" parent="."]
@@ -358,8 +357,7 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AADt//j/AQAAAAAAAAD0//X/AQAHAAQAAAAOAPz/AQAHAAQAAAAEAPj/AQAGAAcAAAANAPn/AQAGAAcAAAADAAIAAQAGAAoAAAD6/wQAAQAGAAoAAAD4/woAAQAGAAoAAAAAAAgAAQAGAAoAAAARAAUAAQAGAAoAAAD3//n/AQAJAAcAAAD4//b/AQAJAAcAAAD1//f/AQAJAAoAAAALAAcAAQADAAoAAAD5//r/AQABAAkAAAD4//r/AQABAAkAAAD3//r/AQABAAkAAADz//r/AQABAAkAAADy//r/AQABAAkAAADx//r/AQABAAkAAADw//r/AQABAAkAAADv//r/AQABAAkAAADu//r/AQABAAkAAADt//r/AQABAAcAAAD2//r/AQABAAcAAAD0//r/AQABAAgAAAD6//r/AQABAAgAAAD0//n/AQALAAYAAADx//n/AQALAAYAAADv//n/AQAJAAQAAADz//n/AQAKAAYAAADy//n/AQAJAAYAAADw//n/AQAJAAYAAADz//f/AQAAAAoAAAARAPr/AQAKAA0AAAAHAPz/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_p75tv")
 
-[node name="StaticBody2D" parent="Environment" instance=ExtResource("4_5yvlf")]
+[node name="Door_POH" parent="." instance=ExtResource("4_5yvlf")]
 position = Vector2(-266, -130)
 
-[node name="Player" parent="." instance=ExtResource("3_hdkj0")]
-collision_mask = 16
+[editable path="Door_POH"]

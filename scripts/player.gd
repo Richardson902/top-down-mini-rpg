@@ -47,4 +47,3 @@ func animDirection() -> String:
 func updateAnimation(state: String) -> void:
 	animation_player.play(state + "_" + animDirection()) # Play anim based on the state and direction
 	pass
-	

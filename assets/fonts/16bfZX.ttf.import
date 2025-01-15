@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://6fs334ar16vp"
-path="res://.godot/imported/16bfZX.ttf-0a0b47cd7c88071b68def4691559d7a4.fontdata"
+path="res://.godot/imported/16bfZX.ttf-d2b8875cd3daa4e95b6e1d3d45b6ec7e.fontdata"
 
 [deps]
 
-source_file="res://fonts/16bfZX.ttf"
-dest_files=["res://.godot/imported/16bfZX.ttf-0a0b47cd7c88071b68def4691559d7a4.fontdata"]
+source_file="res://assets/fonts/16bfZX.ttf"
+dest_files=["res://.godot/imported/16bfZX.ttf-d2b8875cd3daa4e95b6e1d3d45b6ec7e.fontdata"]
 
 [params]
 

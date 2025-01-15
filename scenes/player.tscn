@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://44cqefxyt2jk" path="res://assets/entity/player/clothing/shirt-sheet.png" id="4_lor33"]
 [ext_resource type="Texture2D" uid="uid://kum1foh7w1j1" path="res://assets/entity/player/clothing/pants-sheet.png" id="5_ntlje"]
 [ext_resource type="Texture2D" uid="uid://blr584bbe1bhk" path="res://assets/entity/player/clothing/shoes-sheet.png" id="6_xmhyv"]
-[ext_resource type="PackedScene" uid="uid://dndp6cnwvw0nt" path="res://scenes/customizeui.tscn" id="8_ut0kn"]
+[ext_resource type="PackedScene" uid="uid://dndp6cnwvw0nt" path="res://scenes/ui/customizeui.tscn" id="8_ut0kn"]
 [ext_resource type="Script" path="res://scripts/player_state_machine.gd" id="9_k1vn5"]
 [ext_resource type="Script" path="res://scripts/state_idle.gd" id="10_s3dge"]
 [ext_resource type="Script" path="res://scripts/state_walk.gd" id="11_a0fdc"]
@@ -487,6 +487,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 position = Vector2(0, -5)
+collision_layer = 5
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_1pgh5")
