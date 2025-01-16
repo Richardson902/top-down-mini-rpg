@@ -2,7 +2,7 @@ class_name PlayerCamera extends Camera2D
 
 var max_zoom = 4
 var min_zoom = 1
-var target_zoom = Vector2(1, 1)
+var target_zoom = Vector2(2, 2) # When instatiate new player, might reset to 2, 2. Might need to track this globally.
 var zoom_factor = 1.1
 var zoom_speed = 0.5
 

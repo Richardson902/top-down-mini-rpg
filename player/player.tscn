@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_1pgh5"]
 [ext_resource type="Texture2D" uid="uid://be81e15sh5iyy" path="res://player/sprites/body/body-sheet.png" id="1_d8tdn"]
-[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="2_aknpy"]
+[ext_resource type="Script" path="res://player/scripts/camera_controller.gd" id="2_aknpy"]
 [ext_resource type="Texture2D" uid="uid://d0ckuil6rq16f" path="res://player/sprites/body/head-sheet.png" id="2_pfh13"]
 [ext_resource type="Texture2D" uid="uid://bagjaxitiyg6u" path="res://player/sprites/clothing/hair-sheet.png" id="3_0as8i"]
 [ext_resource type="Texture2D" uid="uid://44cqefxyt2jk" path="res://player/sprites/clothing/shirt-sheet.png" id="4_lor33"]
@@ -487,6 +487,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 position = Vector2(0, -5)
+collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_1pgh5")
@@ -557,6 +558,7 @@ script = ExtResource("10_s3dge")
 script = ExtResource("11_a0fdc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_speed = 15.0
 drag_left_margin = 0.1
 drag_top_margin = 0.1
