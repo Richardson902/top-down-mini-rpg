@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtqve5of8d3l5"]
+[gd_scene load_steps=2 format=3 uid="uid://dtqve5of8d3l5"]
 
 [ext_resource type="PackedScene" uid="uid://cd5c43aauwjt5" path="res://levels/homebase/level_homebase.tscn" id="2_2ilg6"]
-[ext_resource type="Script" path="res://levels/scripts/level.gd" id="2_p6fj6"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -10,4 +9,3 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Level0" parent="MapManager" instance=ExtResource("2_2ilg6")]
-script = ExtResource("2_p6fj6")

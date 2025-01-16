@@ -7,6 +7,7 @@ var zoom_factor = 1.1
 var zoom_speed = 0.5
 
 func _ready():
+	# Update the camera bounds to reflect the new level bounds
 	LevelManager.level_bounds_changed.connect(update_limits)
 	update_limits(LevelManager.current_level_bounds)
 
@@ -15,13 +16,16 @@ func _input(event: InputEvent) -> void:
 		target_zoom *= zoom_factor
 	if event.is_action_pressed("zoom_out"):
 		target_zoom /= zoom_factor
-		
+	
+	# Clamp the values so there's no infinite zoom
 	target_zoom.x = clamp(target_zoom.x, min_zoom, max_zoom)
 	target_zoom.y = clamp(target_zoom.y, min_zoom, max_zoom)
 	
 func _process(_delta: float) -> void:
+	# Lerp to smooth the camera zooming
 	zoom = lerp(zoom, target_zoom, zoom_speed)
 	
+# Get set the bounds of the level
 func update_limits(bounds: Array[Vector2]) -> void:
 	if bounds == []:
 		return

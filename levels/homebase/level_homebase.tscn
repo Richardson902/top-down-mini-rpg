@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=11 format=4 uid="uid://cd5c43aauwjt5"]
 
+[ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_rjsrc"]
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://common/tilemaps/terrains/spring tilemap.png" id="1_ymkwc"]
 [ext_resource type="Texture2D" uid="uid://cquk3hvnktbd5" path="res://common/tilemaps/objects/summer and spring items.png" id="2_5ms0d"]
 [ext_resource type="Script" path="res://common/tilemaps/level_bounds.gd" id="3_xijrv"]
@@ -326,6 +327,7 @@ sources/1 = SubResource("TileSetAtlasSource_igjhq")
 
 [node name="level_homebase" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_rjsrc")
 
 [node name="Environment" type="Node2D" parent="."]
 y_sort_enabled = true
