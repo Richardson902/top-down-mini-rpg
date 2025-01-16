@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2nfsa0k3ng21"]
+
+[sub_resource type="GDScript" id="GDScript_ds28w"]
+script/source = "extends Area2D
+
+@export var next_scene: String
+
+var folder_path: String = \"res://scenes/levels/\"
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		pass
+		#switch_scene()
+
+
+		# Need to set the next scene path in export
+		# Change the scene to the referenced scene
+		# Need to preload them prob
+		# 
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwom1"]
+size = Vector2(12.75, 9)
+
+[node name="scene_trigger" type="Area2D"]
+script = SubResource("GDScript_ds28w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vwom1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="the-quest-for-butt"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scripts/global.gd"
+Global="*res://globals/global.gd"
+LevelManager="*res://globals/global_level_manager.gd"
 
 [display]
 
