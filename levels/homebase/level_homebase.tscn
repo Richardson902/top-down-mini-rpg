@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=12 format=4 uid="uid://cd5c43aauwjt5"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_rjsrc"]
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://common/tilemaps/terrains/spring tilemap.png" id="1_ymkwc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0myomtgxxfdf" path="res://objects/interactables/door.tscn" id="4_5yvlf"]
 [ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://levels/components/player_spawn.tscn" id="5_knsnd"]
 [ext_resource type="Script" path="res://levels/scripts/player_spawn.gd" id="6_3ako8"]
+[ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://levels/components/level_transition.tscn" id="8_asgap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
 texture = ExtResource("1_ymkwc")
@@ -375,5 +376,11 @@ y_sort_enabled = true
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_knsnd")]
 position = Vector2(208, -43)
 script = ExtResource("6_3ako8")
+
+[node name="LevelTransition" parent="." instance=ExtResource("8_asgap")]
+position = Vector2(-266, -121)
+level = "res://levels/level_poh.tscn"
+size = 1
+side = 2
 
 [editable path="Doors/Door_POH"]

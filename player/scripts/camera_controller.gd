@@ -33,3 +33,4 @@ func update_limits(bounds: Array[Vector2]) -> void:
 	limit_top = int(bounds[0].y)
 	limit_right = int(bounds[1].x)
 	limit_bottom = int(bounds[1].y)
+	print("left: ", limit_left, " right: ", limit_right, " top: ", limit_top, " bottom: ", limit_bottom)
