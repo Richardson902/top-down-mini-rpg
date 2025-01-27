@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://hvpqtyhkxh4q"]
+[gd_scene load_steps=8 format=4 uid="uid://hvpqtyhkxh4q"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_1unu8"]
 [ext_resource type="Texture2D" uid="uid://b6knwittpsk4t" path="res://common/tilemaps/objects/furniture.png" id="1_mvngi"]
 [ext_resource type="Texture2D" uid="uid://g6usqp4g1apy" path="res://common/tilemaps/terrains/inside.png" id="2_qipxp"]
-[ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://levels/components/player_spawn.tscn" id="4_ejqyi"]
-[ext_resource type="Script" path="res://levels/scripts/player_spawn.gd" id="5_il0fj"]
 [ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://levels/components/level_transition.tscn" id="6_7ufif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ni1bj"]
@@ -184,10 +182,6 @@ script = ExtResource("1_1unu8")
 z_index = -1
 tile_map_data = PackedByteArray("AAD+//3/AQADAAYAAAD///3/AQAEAAYAAAAAAP3/AQAEAAYAAAABAP3/AQAEAAYAAAABAP7/AQAEAAcAAAABAP//AQAAAAIAAAABAAAAAQAAAAIAAAABAAEAAQAAAAIAAAAAAAEAAQAAAAIAAAD//wEAAQAAAAIAAAD+/wEAAQAAAAIAAAD+//7/AQADAAcAAAD+////AQAAAAIAAAD+/wAAAQAAAAIAAAD//wAAAQAAAAIAAAD/////AQAAAAIAAAAAAP//AQAAAAIAAAAAAP7/AQAEAAcAAAD///7/AQAEAAcAAAAAAAAAAQAAAAIAAAACAAEAAQAAAAIAAAACAAAAAQAAAAIAAAACAP//AQAAAAIAAAACAP7/AQAFAAcAAAACAP3/AQAFAAYAAAD9//z/AQADAAAAAAD9//3/AQADAAEAAAD9//7/AQADAAEAAAD9////AQADAAEAAAD9/wAAAQADAAEAAAD9/wEAAQADAAEAAAADAAEAAQAGAAEAAAADAAAAAQAGAAEAAAADAP//AQAGAAEAAAADAP7/AQAGAAEAAAADAP3/AQAGAAEAAAADAPz/AQAGAAAAAAACAAIAAQAEAAIAAAABAAIAAQAGAAMAAAADAAIAAQAGAAQAAAD//wIAAQADAAMAAAD+/wIAAQAEAAIAAAD9/wIAAQADAAQAAAD+//z/AQAEAAEAAAD///z/AQAEAAEAAAAAAPz/AQAEAAEAAAABAPz/AQAEAAEAAAACAPz/AQAEAAEAAAAAAAIAAQAAAAIAAAD//wMAAQADAAQAAAAAAAMAAQAEAAIAAAABAAMAAQAGAAQAAAA=")
 tile_set = SubResource("TileSet_ak3ka")
-
-[node name="PlayerSpawn" parent="." instance=ExtResource("4_ejqyi")]
-position = Vector2(8, 33)
-script = ExtResource("5_il0fj")
 
 [node name="LevelTransition" parent="." instance=ExtResource("6_7ufif")]
 position = Vector2(8, 47)

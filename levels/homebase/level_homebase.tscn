@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=13 format=4 uid="uid://cd5c43aauwjt5"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_rjsrc"]
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://common/tilemaps/terrains/spring tilemap.png" id="1_ymkwc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://levels/components/player_spawn.tscn" id="5_knsnd"]
 [ext_resource type="Script" path="res://levels/scripts/player_spawn.gd" id="6_3ako8"]
 [ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://levels/components/level_transition.tscn" id="8_asgap"]
+[ext_resource type="PackedScene" uid="uid://c2x4uclp225cs" path="res://objects/interactables/apple_tree.tscn" id="9_tnauk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
 texture = ExtResource("1_ymkwc")
@@ -361,7 +362,7 @@ script = ExtResource("3_xijrv")
 
 [node name="Objects" type="TileMapLayer" parent="Environment"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AADt//j/AQAAAAAAAAD0//X/AQAHAAQAAAAOAPz/AQAHAAQAAAAEAPj/AQAGAAcAAAANAPn/AQAGAAcAAAADAAIAAQAGAAoAAAD6/wQAAQAGAAoAAAD4/woAAQAGAAoAAAAAAAgAAQAGAAoAAAARAAUAAQAGAAoAAAD3//n/AQAJAAcAAAD4//b/AQAJAAcAAAD1//f/AQAJAAoAAAALAAcAAQADAAoAAAD5//r/AQABAAkAAAD4//r/AQABAAkAAAD3//r/AQABAAkAAADz//r/AQABAAkAAADy//r/AQABAAkAAADx//r/AQABAAkAAADw//r/AQABAAkAAADv//r/AQABAAkAAADu//r/AQABAAkAAADt//r/AQABAAcAAAD2//r/AQABAAcAAAD0//r/AQABAAgAAAD6//r/AQABAAgAAAD0//n/AQALAAYAAADx//n/AQALAAYAAADv//n/AQAJAAQAAADz//n/AQAKAAYAAADy//n/AQAJAAYAAADw//n/AQAJAAYAAADz//f/AQAAAAoAAAARAPr/AQAKAA0AAAAHAPz/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADt//j/AQAAAAAAAAD0//X/AQAHAAQAAAAOAPz/AQAHAAQAAAAEAPj/AQAGAAcAAAANAPn/AQAGAAcAAAADAAIAAQAGAAoAAAD6/wQAAQAGAAoAAAD4/woAAQAGAAoAAAAAAAgAAQAGAAoAAAARAAUAAQAGAAoAAAD3//n/AQAJAAcAAAD4//b/AQAJAAcAAAD1//f/AQAJAAoAAAD5//r/AQABAAkAAAD4//r/AQABAAkAAAD3//r/AQABAAkAAADz//r/AQABAAkAAADy//r/AQABAAkAAADx//r/AQABAAkAAADw//r/AQABAAkAAADv//r/AQABAAkAAADu//r/AQABAAkAAADt//r/AQABAAcAAAD2//r/AQABAAcAAAD0//r/AQABAAgAAAD6//r/AQABAAgAAAD0//n/AQALAAYAAADx//n/AQALAAYAAADv//n/AQAJAAQAAADz//n/AQAKAAYAAADy//n/AQAJAAYAAADw//n/AQAJAAYAAADz//f/AQAAAAoAAAARAPr/AQAKAA0AAAAHAPz/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_p75tv")
 
 [node name="Doors" type="Node2D" parent="."]
@@ -382,5 +383,9 @@ position = Vector2(-266, -121)
 level = "res://levels/level_poh.tscn"
 size = 1
 side = 2
+
+[node name="AppleTree" parent="." instance=ExtResource("9_tnauk")]
+y_sort_enabled = true
+position = Vector2(200, 112)
 
 [editable path="Doors/Door_POH"]
