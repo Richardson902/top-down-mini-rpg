@@ -328,11 +328,9 @@ sources/0 = SubResource("TileSetAtlasSource_sbrg2")
 sources/1 = SubResource("TileSetAtlasSource_igjhq")
 
 [node name="level_homebase" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_rjsrc")
 
 [node name="Environment" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Ground" type="TileMapLayer" parent="Environment"]
 z_index = -1
@@ -360,19 +358,25 @@ tile_map_data = PackedByteArray("AADs/wIAAAAEAAgAAADs/wEAAAAEAAgAAADs/wAAAAAEAAg
 tile_set = SubResource("TileSet_p75tv")
 script = ExtResource("3_xijrv")
 
-[node name="Objects" type="TileMapLayer" parent="Environment"]
+[node name="Ysort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Objects" type="TileMapLayer" parent="Ysort"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AADt//j/AQAAAAAAAAD0//X/AQAHAAQAAAAOAPz/AQAHAAQAAAAEAPj/AQAGAAcAAAANAPn/AQAGAAcAAAADAAIAAQAGAAoAAAD6/wQAAQAGAAoAAAD4/woAAQAGAAoAAAAAAAgAAQAGAAoAAAARAAUAAQAGAAoAAAD3//n/AQAJAAcAAAD4//b/AQAJAAcAAAD1//f/AQAJAAoAAAD5//r/AQABAAkAAAD4//r/AQABAAkAAAD3//r/AQABAAkAAADz//r/AQABAAkAAADy//r/AQABAAkAAADx//r/AQABAAkAAADw//r/AQABAAkAAADv//r/AQABAAkAAADu//r/AQABAAkAAADt//r/AQABAAcAAAD2//r/AQABAAcAAAD0//r/AQABAAgAAAD6//r/AQABAAgAAAD0//n/AQALAAYAAADx//n/AQALAAYAAADv//n/AQAJAAQAAADz//n/AQAKAAYAAADy//n/AQAJAAYAAADw//n/AQAJAAYAAADz//f/AQAAAAoAAAARAPr/AQAKAA0AAAAHAPz/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_p75tv")
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Interactables" type="Node2D" parent="Ysort"]
 y_sort_enabled = true
 
-[node name="Door_POH" parent="Doors" instance=ExtResource("4_5yvlf")]
+[node name="Door_POH" parent="Ysort/Interactables" instance=ExtResource("4_5yvlf")]
 position = Vector2(-266, -130)
 
-[node name="Sprite2D" parent="Doors/Door_POH" index="0"]
+[node name="Sprite2D" parent="Ysort/Interactables/Door_POH" index="0"]
 y_sort_enabled = true
+
+[node name="AppleTree" parent="Ysort/Interactables" instance=ExtResource("9_tnauk")]
+position = Vector2(200, 112)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_knsnd")]
 position = Vector2(208, -43)
@@ -384,8 +388,4 @@ level = "res://levels/level_poh.tscn"
 size = 1
 side = 2
 
-[node name="AppleTree" parent="." instance=ExtResource("9_tnauk")]
-y_sort_enabled = true
-position = Vector2(200, 112)
-
-[editable path="Doors/Door_POH"]
+[editable path="Ysort/Interactables/Door_POH"]

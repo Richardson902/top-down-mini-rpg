@@ -1,52 +1,86 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqdouaav5uyh8"]
+[gd_scene load_steps=8 format=3 uid="uid://dqdouaav5uyh8"]
 
 [ext_resource type="Texture2D" uid="uid://bpdjbhix6ejbe" path="res://common/tilemaps/objects/objects.png" id="1_2fb2e"]
+[ext_resource type="Script" path="res://objects/interactables/scripts/apple.gd" id="1_y5wo7"]
 
-[sub_resource type="Animation" id="Animation_5ydhn"]
-resource_name = "falling_apple"
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgxxt"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_j6ohq"]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-2.38419e-07, 2.38419e-07), Vector2(-8.47033e-22, 34)]
-}
-
-[sub_resource type="Animation" id="Animation_j6ohq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Sprite2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2.38419e-07, 2.38419e-07)]
+"values": [Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1yajn"]
+resource_name = "falling_apple"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -68), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnree"]
 _data = {
 "RESET": SubResource("Animation_j6ohq"),
-"falling_apple": SubResource("Animation_5ydhn")
+"falling_apple": SubResource("Animation_1yajn")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs1n4"]
+radius = 3.0
+
 [node name="Apple" type="StaticBody2D"]
-z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_y5wo7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dgxxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, 2.38419e-07)
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_2fb2e")
-offset = Vector2(0, -1)
+offset = Vector2(0, -34)
 hframes = 6
 vframes = 4
 frame = 12
@@ -55,3 +89,10 @@ frame = 12
 libraries = {
 "": SubResource("AnimationLibrary_xnree")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vs1n4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

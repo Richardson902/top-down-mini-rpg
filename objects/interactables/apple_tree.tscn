@@ -37,6 +37,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, 5)
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
