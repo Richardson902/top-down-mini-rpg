@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=4 uid="uid://cd5c43aauwjt5"]
 
-[ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_rjsrc"]
-[ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://common/tilemaps/terrains/spring tilemap.png" id="1_ymkwc"]
-[ext_resource type="Texture2D" uid="uid://cquk3hvnktbd5" path="res://common/tilemaps/objects/summer and spring items.png" id="2_5ms0d"]
-[ext_resource type="Script" path="res://common/tilemaps/level_bounds.gd" id="3_xijrv"]
-[ext_resource type="PackedScene" uid="uid://0myomtgxxfdf" path="res://objects/interactables/door.tscn" id="4_5yvlf"]
-[ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://levels/components/player_spawn.tscn" id="5_knsnd"]
-[ext_resource type="Script" path="res://levels/scripts/player_spawn.gd" id="6_3ako8"]
-[ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://levels/components/level_transition.tscn" id="8_asgap"]
-[ext_resource type="PackedScene" uid="uid://c2x4uclp225cs" path="res://objects/interactables/apple_tree.tscn" id="9_tnauk"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_rjsrc"]
+[ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://levels/tilemaps/terrains/exterior/spring tilemap.png" id="1_ymkwc"]
+[ext_resource type="Texture2D" uid="uid://cquk3hvnktbd5" path="res://levels/tilemaps/objects/exterior/summer and spring items.png" id="2_5ms0d"]
+[ext_resource type="Script" path="res://levels/level_bounds.gd" id="3_xijrv"]
+[ext_resource type="PackedScene" uid="uid://0myomtgxxfdf" path="res://entities/environment/door/door.tscn" id="4_5yvlf"]
+[ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://common/player_spawn/player_spawn.tscn" id="5_knsnd"]
+[ext_resource type="Script" path="res://common/player_spawn/player_spawn.gd" id="6_3ako8"]
+[ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://common/transition/level_transition.tscn" id="8_asgap"]
+[ext_resource type="PackedScene" uid="uid://c2x4uclp225cs" path="res://entities/environment/trees/apple_tree/apple_tree.tscn" id="9_tnauk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
 texture = ExtResource("1_ymkwc")
@@ -384,7 +384,7 @@ script = ExtResource("6_3ako8")
 
 [node name="LevelTransition" parent="." instance=ExtResource("8_asgap")]
 position = Vector2(-266, -121)
-level = "res://levels/level_poh.tscn"
+level = "res://levels/poh/level_poh.tscn"
 size = 1
 side = 2
 
