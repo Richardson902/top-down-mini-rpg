@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv5y8lhduy7kt"]
+[gd_scene load_steps=6 format=3 uid="uid://dv5y8lhduy7kt"]
 
 [ext_resource type="Script" path="res://ui/hud/player_hud.gd" id="1_ti0fp"]
 [ext_resource type="FontFile" uid="uid://6fs334ar16vp" path="res://assets/fonts/16bfZX.ttf" id="2_kvyl2"]
@@ -7,6 +7,12 @@
 font = ExtResource("2_kvyl2")
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg61g"]
+bg_color = Color(0.94902, 0.145098, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiymw"]
+bg_color = Color(0.0745098, 0.796078, 0.027451, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ti0fp")
@@ -34,3 +40,10 @@ text = "Items Collected: 0"
 label_settings = SubResource("LabelSettings_04g44")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sg61g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qiymw")

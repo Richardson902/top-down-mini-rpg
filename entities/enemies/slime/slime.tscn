@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjg5rejgwvitv"]
+
+[ext_resource type="Texture2D" uid="uid://d3em5d0hp63aj" path="res://entities/enemies/slime/art/slime_spritesheet_free.png" id="1_8k04i"]
+[ext_resource type="PackedScene" uid="uid://b3yy1h3pkw5s3" path="res://common/combat/health_component.tscn" id="2_2s6ai"]
+[ext_resource type="PackedScene" uid="uid://do32867otwdm7" path="res://common/combat/health_bar.tscn" id="3_a5sn2"]
+[ext_resource type="PackedScene" uid="uid://cn4n2tbynew25" path="res://common/combat/hitbox_component.tscn" id="3_v0uoq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfgdf"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_e822w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6f65m"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_u5uyx"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vjjt"]
+_data = {
+"RESET": SubResource("Animation_e822w"),
+"idle": SubResource("Animation_6f65m"),
+"walk": SubResource("Animation_u5uyx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqgyc"]
+size = Vector2(22, 17)
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_8k04i")
+hframes = 6
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sfgdf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vjjt")
+}
+autoplay = "idle"
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("2_2s6ai")]
+position = Vector2(-6, 5)
+health_bar = NodePath("HealthBar")
+
+[node name="HealthBar" parent="HealthComponent" instance=ExtResource("3_a5sn2")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_v0uoq")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(1, -4.5)
+shape = SubResource("RectangleShape2D_vqgyc")
+debug_color = Color(0.706304, 0.472495, 0.346167, 0.42)
+
+[connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
