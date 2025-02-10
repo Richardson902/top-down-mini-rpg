@@ -24,12 +24,12 @@ A Godot 4 plugin to generate animations for modular 2d sprites. Generated animat
 2. Setup your nodes, it has to be a `Node2D`, **contains an `AnimationPlayer` and at least a `Sprite2D`** among its children. It's recommended to name the `Sprite2D`s accordingly. Example below:
    
    - `Node2D`
-       - `AnimationPlayer`
-       - `Sprite2D`
-       - `Sprite2D`
-       - ... more `Sprite2D`s
-         
-    ![image](https://github.com/kyboon/ModularSpriteAnimationFactory/assets/24255335/c5050f25-0de4-4c87-ba66-6975068d67ed)
+	   - `AnimationPlayer`
+	   - `Sprite2D`
+	   - `Sprite2D`
+	   - ... more `Sprite2D`s
+		 
+	![image](https://github.com/kyboon/ModularSpriteAnimationFactory/assets/24255335/c5050f25-0de4-4c87-ba66-6975068d67ed)
 3. Set the textures of the `Sprite2D`s with your sprites. And set the Hframes and Vframes (under the `Sprite2D > Animation` section), in the example it's a 4x4 spritesheet.
    
    ![image](https://github.com/kyboon/ModularSpriteAnimationFactory/assets/24255335/03a9659c-f43c-424b-a997-981b6bbd1a71)
@@ -46,4 +46,3 @@ A Godot 4 plugin to generate animations for modular 2d sprites. Generated animat
 6. The result of the generated animation:
 
    ![image](https://github.com/kyboon/ModularSpriteAnimationFactory/assets/24255335/d2c96a0b-db67-4e16-ade0-01085408a640)
-

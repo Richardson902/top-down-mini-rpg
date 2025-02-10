@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 var cardinal_direction = Vector2.DOWN
 var direction = Vector2.ZERO
 
-@onready var skeleton = $Skeleton
+@onready var skeleton: Node2D = $PlayerSprites/Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 

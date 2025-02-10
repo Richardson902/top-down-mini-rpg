@@ -15,6 +15,6 @@ func _ready() -> void:
 	#
 	#if health <= 0:
 		#get_parent().queue_free()
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if health <= 0:
 		get_parent().queue_free()
