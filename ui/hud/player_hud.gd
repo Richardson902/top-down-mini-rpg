@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var collected_items: int = 0
 @onready var label: Label = $Control/ItemsCollected
+@onready var health_bar: ProgressBar = $Control/HealthBar
 
 func _ready() -> void:
 	pass

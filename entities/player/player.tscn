@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnmeel6sct6ng"]
+[gd_scene load_steps=24 format=3 uid="uid://bnmeel6sct6ng"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_1pgh5"]
 [ext_resource type="Texture2D" uid="uid://be81e15sh5iyy" path="res://entities/player/art/body/body-sheet.png" id="1_d8tdn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://common/state_management/state_idle.gd" id="10_s3dge"]
 [ext_resource type="Script" path="res://common/state_management/state_walk.gd" id="11_a0fdc"]
 [ext_resource type="PackedScene" uid="uid://c6jrd8lkqhkx1" path="res://common/interactable/interacting_component.tscn" id="13_guero"]
+[ext_resource type="PackedScene" uid="uid://cn4n2tbynew25" path="res://common/combat/hitbox_component.tscn" id="14_w2ocs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vb8y"]
 radius = 2.54951
@@ -484,6 +485,9 @@ _data = {
 "walk_up": SubResource("Animation_fy870")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36ixh"]
+size = Vector2(15, 13)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 position = Vector2(0, -5)
@@ -567,3 +571,9 @@ drag_bottom_margin = 0.1
 script = ExtResource("2_aknpy")
 
 [node name="InteractingComponent" parent="." instance=ExtResource("13_guero")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("14_w2ocs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_36ixh")
