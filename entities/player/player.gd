@@ -7,7 +7,10 @@ var direction = Vector2.ZERO
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
+signal direction_changed(new_direction : Vector2)
+
 func _ready() -> void:
+	PlayerManager.player = self
 	state_machine.initialize(self)
 	Engine.max_fps = 60
 
@@ -31,6 +34,7 @@ func setDirection() -> bool:
 		return false # Return if direction hasn't changed
 		
 	cardinal_direction = new_direction
+	direction_changed.emit(new_direction)
 	skeleton.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1 # Flips sprite via scaling
 	
 	return true

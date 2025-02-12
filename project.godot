@@ -97,6 +97,7 @@ attack={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Interactions"
 2d_physics/layer_3="Triggers"
+2d_physics/layer_4="PlayerHurt"
 2d_physics/layer_5="Walls"
 2d_physics/layer_9="Enemy"
 
@@ -107,4 +108,3 @@ common/physics_jitter_fix=0.0
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-2d/snap/snap_2d_transforms_to_pixel=true

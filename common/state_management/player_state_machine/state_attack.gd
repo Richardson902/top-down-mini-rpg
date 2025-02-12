@@ -10,6 +10,8 @@ var attacking : bool = false
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animation: AnimationPlayer = $"../../PlayerSprites/Skeleton/Swing/AnimationPlayer"
 @onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
+@onready var hurtbox: HurtBox = %AttackHurtBox
+
 
 
 
@@ -18,16 +20,23 @@ func enter() -> void:
 	player.updateAnimation("attack")
 	attack_animation.play("attack_" + player.animDirection())
 	animation_player.animation_finished.connect(end_attack)
+	
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range(0.9, 1.1)
 	audio.play()
+	
 	attacking = true
+	
+	await get_tree().create_timer(0.075).timeout
+	hurtbox.monitoring = true
+	
 	pass
 
 # When player exits this state
 func exit() -> void:
 	animation_player.animation_finished.disconnect(end_attack)
 	attacking = false
+	hurtbox.monitoring = false
 	pass
 
 # When _process update in this state
