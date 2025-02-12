@@ -314,7 +314,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.384415,
 "start_offset": 0.0,
 "stream": ExtResource("3_o6kmo")
 }],
@@ -372,7 +372,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.409395,
 "start_offset": 0.0,
 "stream": ExtResource("3_o6kmo")
 }],
@@ -430,7 +430,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.410783,
 "start_offset": 0.0,
 "stream": ExtResource("3_o6kmo")
 }],

@@ -5,8 +5,8 @@ const PLAYER = preload("res://entities/player/player.tscn")
 
 var player: Player
 var player_spawned : bool = false # Keep track of player spawned or not
-const MAX_HEALTH: float = 30.0
-var health : float
+const MAX_HEALTH: int = 100
+var health : int
 
 func _ready() -> void:
 	add_player_instance()
@@ -34,5 +34,5 @@ func set_as_parent( _parent : Node2D) -> void:
 func unparent_player(_parent : Node2D) -> void:
 	_parent.remove_child(player)
 	
-func take_damage(damage : int) -> void:
-	health = health - damage
+#func take_damage(damage : int) -> void:
+	#health = health - damage

@@ -13,12 +13,9 @@ func _ready() -> void:
 	health_bar.value = health
 	health_changed.connect(_on_health_changed)
 
-func damage(damage : int) -> void:
-	health -= damage
+func damage(amount : int) -> void:
+	health -= amount
 	health_changed.emit(health) # Emit updated health value
-	
-	#if health <= 0:
-		#get_parent().queue_free()
-		#
+
 func _on_health_changed(new_health : int) -> void:
 	health_bar.value = new_health
