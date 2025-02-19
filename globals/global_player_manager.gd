@@ -32,3 +32,7 @@ func set_as_parent( _parent : Node2D) -> void:
 	
 func unparent_player(_parent : Node2D) -> void:
 	_parent.remove_child(player)
+
+func reward_xp(_xp : int) -> void:
+	player.xp += _xp
+	print("XP = ", str(player.xp))

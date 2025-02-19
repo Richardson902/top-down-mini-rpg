@@ -7,18 +7,26 @@ signal enemy_destroyed(hurtbox : HurtBox)
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 @export var health_component : HealthComponent
+@export var xp_reward : int = 1
+@export var respawn_time: int = 1
+@export_file var enemy_scene
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var player : Player
 var invulnerable : bool = false
+var spawn_position : Vector2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hitbox: HitBox = $HitBox
 @onready var state_machine : EnemyStateMachine = $EnemyStateMachine
+@onready var respawn_timer: Timer = $RespawnTimer
+@onready var spawn_marker: Marker2D = $SpawnPosition
 
 func _ready() -> void:
+	spawn_position = spawn_marker.global_position
+	respawn_timer.wait_time = respawn_time
 	state_machine.initialize(self)
 	player = PlayerManager.player
 	hitbox.Damaged.connect(_take_damage)
@@ -70,3 +78,10 @@ func _take_damage(hurtbox : HurtBox) -> void:
 		else:
 			enemy_destroyed.emit(hurtbox)
 	
+func _on_respawn_timer_timeout() -> void:
+	print("Enemy Spawning")
+	var new_enemy = load(enemy_scene).instantiate()
+	
+	new_enemy.global_position = spawn_position
+	
+	get_parent().add_child(new_enemy)

@@ -10,6 +10,9 @@ var invulnerable : bool = false
 var health : int = 6
 var max_health : int = 6
 
+var level : int = 1
+var xp : int = 0
+
 @onready var skeleton: Node2D = $PlayerSprites/Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine

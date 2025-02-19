@@ -31,7 +31,6 @@ func update_state() -> void:
 func pick_apples() -> void:
 	has_apples = false
 	update_state()
-	#growth_timer.start()
 	drop_apple()
 
 func _on_growth_timer_timeout() -> void:
