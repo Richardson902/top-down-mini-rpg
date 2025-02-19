@@ -12,6 +12,10 @@ var max_health : int = 6
 
 var level : int = 1
 var xp : int = 0
+var attack : int = 1 :
+	set( v ):
+		attack = v
+		update_damage_values()
 
 @onready var skeleton: Node2D = $PlayerSprites/Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -25,6 +29,7 @@ func _ready() -> void:
 	hitbox.Damaged.connect(_take_damage)
 	Engine.max_fps = 60
 	update_health(99)
+	update_damage_values()
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
@@ -76,6 +81,9 @@ func _take_damage(hurtbox : HurtBox):
 		update_health(99)
 	
 	pass
+
+func update_damage_values() -> void:
+	%AttackHurtBox.damage += attack
 
 func update_health( delta : int) -> void:
 	health = clampi(health + delta, 0, max_health)

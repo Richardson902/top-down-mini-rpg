@@ -4,12 +4,16 @@ var collected_items: int = 0
 var hearts : Array[ HeartGUI ] = []
 
 @onready var label: Label = $Control/ItemsCollected
+@onready var xp_bar: ProgressBar = $Control/XpBar
+@onready var level: Label = $Control/XpBar/Level
 
 func _ready() -> void:
 	for child in $Control/HFlowContainer.get_children():
 		if child is HeartGUI:
 			hearts.append(child)
 			child.visible = false
+	#PlayerManager.player_leveled_up.connect(update_health)
+	PlayerManager.player_leveled_up.connect(update_experience)
 
 func increment_collection(amount: int):
 	collected_items += amount	
@@ -34,3 +38,8 @@ func update_max_health(_max_health : int) -> void:
 		else:
 			hearts[i].visible = false
 	pass
+
+func update_experience() -> void:
+	level.text = str(PlayerManager.player.level)
+	xp_bar.max_value = PlayerManager.level_requirements[PlayerManager.player.level]
+	
