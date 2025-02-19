@@ -1,18 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv5y8lhduy7kt"]
+[gd_scene load_steps=5 format=3 uid="uid://dv5y8lhduy7kt"]
 
 [ext_resource type="Script" path="res://ui/hud/player_hud.gd" id="1_ti0fp"]
 [ext_resource type="FontFile" uid="uid://6fs334ar16vp" path="res://assets/fonts/16bfZX.ttf" id="2_kvyl2"]
+[ext_resource type="PackedScene" uid="uid://1uhunhvs8njd" path="res://ui/hud/heart_gui.tscn" id="2_r3wr2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04g44"]
 font = ExtResource("2_kvyl2")
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg61g"]
-bg_color = Color(0.94902, 0.145098, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiymw"]
-bg_color = Color(0.0745098, 0.796078, 0.027451, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ti0fp")
@@ -25,6 +20,80 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -211.0
+offset_top = 5.0
+offset_right = -14.0
+offset_bottom = 223.0
+grow_horizontal = 0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 7
+alignment = 2
+
+[node name="Heart" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart2" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart3" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart4" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart5" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart6" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart7" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart8" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart9" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart10" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart11" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart12" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart13" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart14" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart15" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart16" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart17" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart18" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart19" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
+
+[node name="Heart20" parent="Control/HFlowContainer" instance=ExtResource("2_r3wr2")]
+layout_mode = 2
 
 [node name="ItemsCollected" type="Label" parent="Control"]
 layout_mode = 1
@@ -41,10 +110,3 @@ text = "Items Collected: 0"
 label_settings = SubResource("LabelSettings_04g44")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="HealthBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_right = 159.0
-offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxFlat_sg61g")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qiymw")

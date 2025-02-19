@@ -5,7 +5,10 @@ signal player_damaged(hurtbox : HurtBox)
 
 var cardinal_direction = Vector2.DOWN
 var direction = Vector2.ZERO
+
 var invulnerable : bool = false
+var health : int = 6
+var max_health : int = 6
 
 @onready var skeleton: Node2D = $PlayerSprites/Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -18,6 +21,7 @@ func _ready() -> void:
 	state_machine.initialize(self)
 	hitbox.Damaged.connect(_take_damage)
 	Engine.max_fps = 60
+	update_health(99)
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down") # Normalized vector
@@ -62,17 +66,17 @@ func _take_damage(hurtbox : HurtBox):
 		return
 	update_health(-hurtbox.damage)
 	
-	if PlayerManager.health > 0:
+	if health > 0:
 		player_damaged.emit(hurtbox)
 	else:
 		player_damaged.emit(hurtbox)
-		update_health(100)
+		update_health(99)
 	
 	pass
 
 func update_health( delta : int) -> void:
-	PlayerManager.health = clampi(PlayerManager.health + delta, 0, PlayerManager.MAX_HEALTH)
-	PlayerHud.health_bar.value = PlayerManager.health
+	health = clampi(health + delta, 0, max_health)
+	PlayerHud.update_health(health, max_health)
 
 func make_invulnerable(_duration : float = 1.0) -> void:
 	invulnerable = true
