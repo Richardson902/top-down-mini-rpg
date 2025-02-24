@@ -4,6 +4,8 @@ class_name EnemyStateDestroy extends EnemyState
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
 
+var dropped_item = preload("res://entities/items/coin/coin.tscn")
+
 var _damage_position : Vector2
 var _direction : Vector2
 
@@ -25,6 +27,7 @@ func enter() -> void:
 	
 	PlayerManager.reward_xp(enemy.xp_reward)
 	disable_hurt_box()
+	drop_item()
 	pass
 
 # On exit
@@ -45,11 +48,18 @@ func _on_enemy_destroyed(hurtbox : HurtBox) -> void:
 	state_machine.change_state(self)
 
 func _on_animation_finished(_a : String) -> void:
-	enemy.respawn_timer.start()
-	await enemy.respawn_timer.timeout
+	if enemy.can_respawn == true:
+		enemy.respawn_timer.start()
+		await enemy.respawn_timer.timeout
 	enemy.queue_free()
 
 func disable_hurt_box() -> void:
 	var hurt_box : HurtBox = enemy.get_node_or_null("HurtBox")
 	if hurt_box:
 		hurt_box.moinitoring = false
+
+func drop_item() -> void:
+	var item_instance = dropped_item.instantiate()
+	item_instance.global_position = enemy.global_position
+	get_parent().call_deferred("add_child", item_instance)
+	pass

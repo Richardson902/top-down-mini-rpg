@@ -10,6 +10,7 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 @export var xp_reward : int = 1
 @export var respawn_time: int = 1
 @export_file var enemy_scene
+@export var can_respawn : bool
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO

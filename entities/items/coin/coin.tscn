@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dwr27eia37mi1" path="res://assets/sound/PickupSound.mp3" id="2_t1xbg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uljmi"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_mdvxl"]
 resource_name = "rotating"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=15 format=4 uid="uid://cd5c43aauwjt5"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_rjsrc"]
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://levels/tilemaps/terrains/exterior/spring tilemap.png" id="1_ymkwc"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c2x4uclp225cs" path="res://entities/environment/trees/apple_tree/apple_tree.tscn" id="9_tnauk"]
 [ext_resource type="PackedScene" uid="uid://bobq1l88m27v8" path="res://entities/items/coin/coin.tscn" id="10_0x1m2"]
 [ext_resource type="PackedScene" uid="uid://bjg5rejgwvitv" path="res://entities/enemies/slime/slime.tscn" id="10_twd4c"]
+[ext_resource type="PackedScene" uid="uid://d0a7afgxrjrme" path="res://entities/enemies/goblin/goblin.tscn" id="11_vombl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
 texture = ExtResource("1_ymkwc")
@@ -399,5 +400,8 @@ position = Vector2(168, -25)
 
 [node name="Coin3" parent="." instance=ExtResource("10_0x1m2")]
 position = Vector2(154, 2)
+
+[node name="Goblin" parent="." instance=ExtResource("11_vombl")]
+position = Vector2(-168, 88)
 
 [editable path="Ysort/Interactables/Door_POH"]
