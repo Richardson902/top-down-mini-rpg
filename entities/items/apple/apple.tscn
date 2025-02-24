@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqdouaav5uyh8"]
 
-[ext_resource type="Script" path="res://entities/environment/foraging/apple/apple.gd" id="1_dpsa1"]
+[ext_resource type="Script" path="res://entities/items/apple/apple.gd" id="1_dpsa1"]
 [ext_resource type="Texture2D" uid="uid://bpdjbhix6ejbe" path="res://levels/tilemaps/objects/items/objects.png" id="2_t46js"]
 [ext_resource type="AudioStream" uid="uid://dwr27eia37mi1" path="res://assets/sound/PickupSound.mp3" id="3_h541w"]
 

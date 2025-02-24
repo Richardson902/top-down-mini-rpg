@@ -24,6 +24,7 @@ func enter() -> void:
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	
 	PlayerManager.reward_xp(enemy.xp_reward)
+	disable_hurt_box()
 	pass
 
 # On exit
@@ -47,3 +48,8 @@ func _on_animation_finished(_a : String) -> void:
 	enemy.respawn_timer.start()
 	await enemy.respawn_timer.timeout
 	enemy.queue_free()
+
+func disable_hurt_box() -> void:
+	var hurt_box : HurtBox = enemy.get_node_or_null("HurtBox")
+	if hurt_box:
+		hurt_box.moinitoring = false
