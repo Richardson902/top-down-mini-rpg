@@ -9,6 +9,7 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_a4rrg")
+type = 6
 name = "Coin"
 description = "shiny!"
 texture = SubResource("AtlasTexture_ltbqf")

@@ -1,33 +1,25 @@
 extends CanvasLayer
 
-signal shown
-signal hidden
-
-var is_open : bool = false
-
-@onready var item_description: Label = $Control/ItemDescription
+var inv_size : int = 16
+var items_load = [
+	"res://items/coin/coin.tres",
+	"res://items/mushroom/mushroom.tres"
+]
 
 func _ready() -> void:
-	close_inventory()
+	self.visible = false
+	for i in inv_size:
+		var slot := InventorySlot.new()
+		slot.init(ItemData.Type.MAIN, Vector2(32, 32))
+		%Inv.add_child(slot)
+	
+	for i in items_load.size():
+		var item := InventoryItem.new()
+		item.init(load(items_load[i]))
+		%Inv.get_child(i).add_child(item)
 
-func _unhandled_input(event : InputEvent) -> void:
-	if event.is_action_pressed("Inventory"):
-		if is_open == false:
-			open_inventory()
-		else:
-			close_inventory()
-		get_viewport().set_input_as_handled()
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Inventory"):
+		self.visible = !self.visible
 
-func open_inventory() -> void:
-	visible = true
-	is_open = true
-	shown.emit()
-
-func close_inventory() -> void:
-	visible = false
-	is_open = false
-	hidden.emit()
-
-func update_item_description(new_text : String) -> void:
-	item_description.text = new_text
 	
