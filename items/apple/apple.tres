@@ -13,3 +13,5 @@ type = 6
 name = "Apple"
 description = "One a day keeps the monsters at bay"
 texture = SubResource("AtlasTexture_1hq7q")
+stackable = true
+max_stack_size = 99

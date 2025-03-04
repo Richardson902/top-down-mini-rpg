@@ -13,3 +13,5 @@ type = 6
 name = "Coin"
 description = "shiny!"
 texture = SubResource("AtlasTexture_ltbqf")
+stackable = true
+max_stack_size = 99

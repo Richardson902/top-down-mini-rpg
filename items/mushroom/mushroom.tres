@@ -13,3 +13,5 @@ type = 6
 name = "Mushroom"
 description = "mmmm a mushroom"
 texture = SubResource("AtlasTexture_48gfs")
+stackable = true
+max_stack_size = 99
