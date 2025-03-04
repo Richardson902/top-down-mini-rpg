@@ -14,14 +14,35 @@ func _ready() -> void:
 	if data:
 		texture = data.texture
 		tooltip_text = "%s\n%s" % [data.name, data.description]
-		
-		if data.type == ItemData.Type.MAIN and data.stackable and quantity > 1:
+		update_quantity_display()
+
+func update_quantity_display() -> void:
+	# Only show quantities for stackable items with quantity > 1
+	if data and data.stackable and quantity > 1:
+		if not quantity_label:
+			# Create label if doesnt exist
 			quantity_label = Label.new()
-			quantity_label.text = str(quantity)
-			quantity_label.position = Vector2(size.x - 12, size.y -12)
 			quantity_label.size_flags_horizontal = Control.SIZE_SHRINK_END
 			quantity_label.size_flags_vertical = Control.SIZE_SHRINK_END
 			add_child(quantity_label)
+		
+		# Update label text
+		quantity_label.text = str(quantity)
+	elif quantity_label:
+		# Remove label if quantity is 1 or item is not stackable
+		quantity_label.queue_free()
+		quantity_label = null
+
+func update_quantity(qty: int) -> void:
+	quantity = qty
+	update_quantity_display()
+	
+	# Update tooltip
+	#if data:
+		#if data.stackable and quantity > 1:
+			#tooltip_text = "%s\n%s\nQuantity: %d" % [data.name, data.description, quantity]
+		#else:
+	tooltip_text = "%s\n%s" % [data.name, data.description]
 
 func _get_drag_data(at_position : Vector2):
 	set_drag_preview(make_drag_preview(at_position))

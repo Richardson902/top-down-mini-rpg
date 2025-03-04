@@ -30,4 +30,28 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		self.visible = !self.visible
 
+func add_item(item_data: ItemData, quantity: int = 1) -> bool:
+	# First try to stack with existing items if stackable
+	if item_data.stackable:
+		for i in inv_size:
+			var slot = %Inv.get_child(i)
+			if slot.get_child_count() > 0:
+				var inv_item = slot.get_child(0)
+				if inv_item.data == item_data:
+					# Found match, update qty
+					inv_item.update_quantity(inv_item.quantity + quantity)
+					return true
 	
+	# If not stackable or no existing stack found, find empty slot
+	for i in inv_size:
+		var slot = %Inv.get_child(i)
+		if slot.get_child_count() == 0:
+			# Found empty slot, add item
+			var item = InventoryItem.new()
+			item.init(item_data, quantity)
+			slot.add_child(item)
+			return true
+			
+	# Inventory is full
+	print("Inventory full, cannot add item:", item_data.name)
+	return false
