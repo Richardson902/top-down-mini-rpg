@@ -6,7 +6,7 @@ extends StaticBody2D
 @onready var growth_timer: Timer = $GrowthTimer
 @onready var marker: Marker2D = $Marker2D
 
-var apple = preload("res://entities/items/apple/apple.tscn")
+var apple = preload("res://items/apple/apple.tscn")
 
 # Regions for open and closed frames of the door (yucky tilemap thing, would rather use frame indexes)
 var apples = Rect2(Vector2(60, 160), Vector2(36, 48))

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://3lpw8elti0u8" path="res://common/player_spawn/player_spawn.tscn" id="5_knsnd"]
 [ext_resource type="PackedScene" uid="uid://bto4yph5wm67q" path="res://common/transition/level_transition.tscn" id="8_asgap"]
 [ext_resource type="PackedScene" uid="uid://c2x4uclp225cs" path="res://entities/environment/trees/apple_tree/apple_tree.tscn" id="9_tnauk"]
-[ext_resource type="PackedScene" uid="uid://bobq1l88m27v8" path="res://entities/items/coin/coin.tscn" id="10_0x1m2"]
+[ext_resource type="PackedScene" uid="uid://bobq1l88m27v8" path="res://items/coin/coin.tscn" id="10_0x1m2"]
 [ext_resource type="PackedScene" uid="uid://bjg5rejgwvitv" path="res://entities/enemies/slime/slime.tscn" id="10_twd4c"]
 [ext_resource type="PackedScene" uid="uid://d0a7afgxrjrme" path="res://entities/enemies/goblin/goblin.tscn" id="11_vombl"]
 

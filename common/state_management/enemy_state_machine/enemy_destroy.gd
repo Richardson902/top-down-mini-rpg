@@ -4,7 +4,7 @@ class_name EnemyStateDestroy extends EnemyState
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
 
-var dropped_item = preload("res://entities/items/coin/coin.tscn")
+var dropped_item = preload("res://items/coin/coin.tscn")
 
 var _damage_position : Vector2
 var _direction : Vector2

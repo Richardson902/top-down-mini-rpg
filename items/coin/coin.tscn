@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bobq1l88m27v8"]
 
-[ext_resource type="Texture2D" uid="uid://bqnhyu3ahfc3p" path="res://entities/items/coin/MonedaD.png" id="1_2u4b4"]
-[ext_resource type="Script" path="res://entities/items/coin/coin.gd" id="1_ibvjq"]
+[ext_resource type="Texture2D" uid="uid://bqnhyu3ahfc3p" path="res://items/coin/MonedaD.png" id="1_2u4b4"]
+[ext_resource type="Script" path="res://items/coin/coin.gd" id="1_ibvjq"]
 [ext_resource type="AudioStream" uid="uid://dwr27eia37mi1" path="res://assets/sound/PickupSound.mp3" id="2_t1xbg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uljmi"]

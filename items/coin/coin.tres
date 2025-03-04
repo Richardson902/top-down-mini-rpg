@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dcv64fldymjd4"]
+
+[ext_resource type="Script" path="res://items/item_data.gd" id="1_a4rrg"]
+[ext_resource type="Texture2D" uid="uid://bqnhyu3ahfc3p" path="res://items/coin/MonedaD.png" id="2_3cdpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltbqf"]
+atlas = ExtResource("2_3cdpi")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_a4rrg")
+name = "Coin"
+description = "shiny!"
+texture = SubResource("AtlasTexture_ltbqf")
