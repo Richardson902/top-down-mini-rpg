@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dcv64fldymjd4"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dcv64fldymjd4"]
 
 [ext_resource type="Script" path="res://items/item_data.gd" id="1_a4rrg"]
+[ext_resource type="Script" path="res://items/item_effects/item_effect.gd" id="1_pv0lk"]
 [ext_resource type="Texture2D" uid="uid://bqnhyu3ahfc3p" path="res://items/coin/MonedaD.png" id="2_3cdpi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltbqf"]
@@ -15,3 +16,4 @@ description = "shiny!"
 texture = SubResource("AtlasTexture_ltbqf")
 stackable = true
 max_stack_size = 99
+effects = Array[ExtResource("1_pv0lk")]([])

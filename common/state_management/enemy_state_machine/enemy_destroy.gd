@@ -1,10 +1,15 @@
 class_name EnemyStateDestroy extends EnemyState
 
+const PICKUP = preload("res://items/item_pickup/item_pickup.tscn")
+
 @export var anim_name : String = "destroy"
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
 
-var dropped_item = preload("res://items/coin/coin.tscn")
+@export_category("Item Drops")
+@export var drops : Array[DropData]
+
+var dropped_item = preload("res://items/coin/coin.tres")
 
 var _damage_position : Vector2
 var _direction : Vector2
@@ -27,7 +32,7 @@ func enter() -> void:
 	
 	PlayerManager.reward_xp(enemy.xp_reward)
 	disable_hurt_box()
-	drop_item()
+	drop_items()
 	pass
 
 # On exit
@@ -58,8 +63,18 @@ func disable_hurt_box() -> void:
 	if hurt_box:
 		hurt_box.moinitoring = false
 
-func drop_item() -> void:
-	var item_instance = dropped_item.instantiate()
-	item_instance.global_position = enemy.global_position
-	get_parent().call_deferred("add_child", item_instance)
-	pass
+func drop_items() -> void:
+	if drops.size() == 0:
+		return
+	
+	for i in drops.size():
+		if drops[i] == null || drops[i].item == null:
+			continue
+		var amount_to_drop : int = drops[i].get_drop_count()
+		for j in amount_to_drop:
+			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+			drop.item_data = drops[i].item
+			enemy.get_parent().call_deferred("add_child", drop)
+			drop.global_position = enemy.global_position + Vector2(randf() * 16, randf() * 16)
+	
+	

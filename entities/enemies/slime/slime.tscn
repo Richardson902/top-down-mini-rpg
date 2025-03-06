@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bjg5rejgwvitv"]
+[gd_scene load_steps=35 format=3 uid="uid://bjg5rejgwvitv"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_7suwt"]
 [ext_resource type="Texture2D" uid="uid://d3em5d0hp63aj" path="res://entities/enemies/slime/art/slime_spritesheet_free.png" id="1_8k04i"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://common/state_management/enemy_state_machine/enemy_stun.gd" id="10_rkw1n"]
 [ext_resource type="Script" path="res://common/state_management/enemy_state_machine/enemy_destroy.gd" id="11_omrjt"]
 [ext_resource type="PackedScene" uid="uid://cn4n2tbynew25" path="res://common/combat/hitbox/hitbox.tscn" id="12_d1i3s"]
+[ext_resource type="Script" path="res://entities/enemies/drop_data.gd" id="12_f1k5e"]
+[ext_resource type="Resource" uid="uid://c6vwjr5wr4840" path="res://items/mushroom/mushroom.tres" id="13_jb4cu"]
+[ext_resource type="Resource" uid="uid://dcv64fldymjd4" path="res://items/coin/coin.tres" id="14_pe3gv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfgdf"]
 radius = 3.0
@@ -566,6 +569,20 @@ _data = {
 "walk_up": SubResource("Animation_r8mlh")
 }
 
+[sub_resource type="Resource" id="Resource_rceck"]
+script = ExtResource("12_f1k5e")
+item = ExtResource("13_jb4cu")
+probability = 50.0
+min_amount = 1
+max_amount = 2
+
+[sub_resource type="Resource" id="Resource_k653g"]
+script = ExtResource("12_f1k5e")
+item = ExtResource("14_pe3gv")
+probability = 100.0
+min_amount = 1
+max_amount = 5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4v6l"]
 radius = 8.0
 
@@ -617,6 +634,7 @@ next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("11_omrjt")
+drops = Array[ExtResource("12_f1k5e")]([SubResource("Resource_rceck"), SubResource("Resource_k653g")])
 
 [node name="Hurtbox" parent="." instance=ExtResource("8_h8u3d")]
 
