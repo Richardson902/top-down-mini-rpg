@@ -400,15 +400,18 @@ position = Vector2(-168, 88)
 position = Vector2(61, -9)
 item_data = ExtResource("13_llx35")
 item_scale = 0.5
+friction = null
 
 [node name="Coin2" parent="." instance=ExtResource("12_ddefm")]
 position = Vector2(45, -43)
 item_data = ExtResource("13_llx35")
 item_scale = 0.5
+friction = null
 
 [node name="Coin3" parent="." instance=ExtResource("12_ddefm")]
 position = Vector2(83, -34)
 item_data = ExtResource("13_llx35")
 item_scale = 0.5
+friction = null
 
 [editable path="Ysort/Interactables/Door_POH"]
