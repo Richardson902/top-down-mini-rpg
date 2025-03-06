@@ -1,7 +1,16 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://vvbwjf2jqlo1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://vvbwjf2jqlo1"]
 
+[ext_resource type="Script" path="res://items/item_effects/item_effect.gd" id="1_rndb7"]
 [ext_resource type="Script" path="res://items/item_data.gd" id="1_v18cr"]
 [ext_resource type="Texture2D" uid="uid://bpdjbhix6ejbe" path="res://items/objects.png" id="2_tbmti"]
+[ext_resource type="AudioStream" uid="uid://v0gluxy75gsw" path="res://assets/sound/EatSound.mp3" id="2_wwtcb"]
+[ext_resource type="Script" path="res://items/item_effects/item_effect_heal.gd" id="3_wox4h"]
+
+[sub_resource type="Resource" id="Resource_2qh1s"]
+script = ExtResource("3_wox4h")
+heal_amount = 1
+audio = ExtResource("2_wwtcb")
+use_description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hq7q"]
 atlas = ExtResource("2_tbmti")
@@ -15,3 +24,4 @@ description = "One a day keeps the monsters at bay"
 texture = SubResource("AtlasTexture_1hq7q")
 stackable = true
 max_stack_size = 99
+effects = Array[ExtResource("1_rndb7")]([SubResource("Resource_2qh1s")])

@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@onready var audio_player: AudioStreamPlayer = $Control/AudioStreamPlayer
+
+
 var inv_size : int = 16
 var items_load = [
 	{
@@ -55,3 +58,8 @@ func add_item(item_data: ItemData, quantity: int = 1) -> bool:
 	# Inventory is full
 	print("Inventory full, cannot add item:", item_data.name)
 	return false
+
+# Move this to pause menu later
+func play_audio(audio : AudioStream) -> void:
+	audio_player.stream = audio
+	audio_player.play()

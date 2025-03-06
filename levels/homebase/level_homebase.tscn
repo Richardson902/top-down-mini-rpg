@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cd5c43aauwjt5"]
+[gd_scene load_steps=17 format=4 uid="uid://cd5c43aauwjt5"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_rjsrc"]
 [ext_resource type="Texture2D" uid="uid://bdf6okggj7ncw" path="res://levels/tilemaps/terrains/exterior/spring tilemap.png" id="1_ymkwc"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bobq1l88m27v8" path="res://items/coin/coin.tscn" id="10_0x1m2"]
 [ext_resource type="PackedScene" uid="uid://bjg5rejgwvitv" path="res://entities/enemies/slime/slime.tscn" id="10_twd4c"]
 [ext_resource type="PackedScene" uid="uid://d0a7afgxrjrme" path="res://entities/enemies/goblin/goblin.tscn" id="11_vombl"]
+[ext_resource type="PackedScene" uid="uid://bcm28jt4h4ilr" path="res://items/item_pickup/item_pickup.tscn" id="12_ddefm"]
+[ext_resource type="Resource" uid="uid://dcv64fldymjd4" path="res://items/coin/coin.tres" id="13_llx35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbrg2"]
 texture = ExtResource("1_ymkwc")
@@ -403,5 +405,20 @@ position = Vector2(154, 2)
 
 [node name="Goblin" parent="." instance=ExtResource("11_vombl")]
 position = Vector2(-168, 88)
+
+[node name="ItemPickup" parent="." instance=ExtResource("12_ddefm")]
+position = Vector2(61, -9)
+item_data = ExtResource("13_llx35")
+item_scale = 0.5
+
+[node name="ItemPickup2" parent="." instance=ExtResource("12_ddefm")]
+position = Vector2(45, -43)
+item_data = ExtResource("13_llx35")
+item_scale = 0.5
+
+[node name="ItemPickup3" parent="." instance=ExtResource("12_ddefm")]
+position = Vector2(83, -34)
+item_data = ExtResource("13_llx35")
+item_scale = 0.5
 
 [editable path="Ysort/Interactables/Door_POH"]

@@ -122,3 +122,6 @@ type = 5
 [node name="Accessory" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3/AccessorySlot"]
 layout_mode = 2
 script = ExtResource("3_utskb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4
