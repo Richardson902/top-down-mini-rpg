@@ -23,6 +23,7 @@ var base_hurtbox_damage : int
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var hitbox: HitBox = $HitBox
+@onready var weapon_sprite: Sprite2D = $PlayerSprites/Skeleton/WeaponHolder/Sprite2D
 
 
 func _ready() -> void:
