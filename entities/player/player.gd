@@ -17,6 +17,8 @@ var attack : int = 1 :
 		attack = v
 		update_damage_values()
 
+var base_hurtbox_damage : int
+
 @onready var skeleton: Node2D = $PlayerSprites/Skeleton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
@@ -29,6 +31,7 @@ func _ready() -> void:
 	hitbox.Damaged.connect(_take_damage)
 	Engine.max_fps = 60
 	update_health(99)
+	base_hurtbox_damage = %AttackHurtBox.damage
 	update_damage_values()
 
 func _process(_delta: float) -> void:
@@ -83,7 +86,8 @@ func _take_damage(hurtbox : HurtBox):
 	pass
 
 func update_damage_values() -> void:
-	%AttackHurtBox.damage += attack
+	%AttackHurtBox.damage = base_hurtbox_damage + attack
+	print("Updated damage hurtbox: ", %AttackHurtBox.damage)
 
 func update_health( delta : int) -> void:
 	health = clampi(health + delta, 0, max_health)
