@@ -12,16 +12,18 @@ heal_amount = 2
 audio = ExtResource("2_wwtcb")
 use_description = ""
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hq7q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ongm3"]
 atlas = ExtResource("2_tbmti")
 region = Rect2(0, 32, 16, 16)
 
 [resource]
 script = ExtResource("1_v18cr")
 type = 6
-name = "Apple"
-description = "One a day keeps the monsters at bay"
-texture = SubResource("AtlasTexture_1hq7q")
+item_name = "Apple"
 stackable = true
 max_stack_size = 99
+item_damage = 0
+item_defense = 0
+description = "One a day keeps the monsters at bay"
+item_texture = SubResource("AtlasTexture_ongm3")
 effects = Array[ExtResource("1_rndb7")]([SubResource("Resource_2qh1s")])

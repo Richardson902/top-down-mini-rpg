@@ -15,10 +15,11 @@ func _can_drop_data(_at_position: Vector2, data: Variant):
 			else:
 				if type == data.get_parent().type:
 					return true
-			return get_child(0).data_type == data.data.type
+					
+				return get_child(0).data.type == data.data.type
 		else:
 			return data.data.type == type
-		return false
+	return false
 
 func _drop_data(_at_position: Vector2, data: Variant):
 	if get_child_count() > 0:

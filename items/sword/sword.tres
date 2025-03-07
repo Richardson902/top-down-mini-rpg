@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://items/item_data.gd" id="2_24nnk"]
 [ext_resource type="Texture2D" uid="uid://bpdjbhix6ejbe" path="res://items/objects.png" id="3_4ku2g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7app"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_euaqu"]
 atlas = ExtResource("3_4ku2g")
 region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_24nnk")
 type = 4
-name = "Sword"
-description = "Sharp asl"
-texture = SubResource("AtlasTexture_e7app")
+item_name = "Sword"
 stackable = false
 max_stack_size = 99
+item_damage = 100
+item_defense = 0
+description = "Sharp asl"
+item_texture = SubResource("AtlasTexture_euaqu")
 effects = Array[ExtResource("1_b08ee")]([])

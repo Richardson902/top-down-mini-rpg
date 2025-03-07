@@ -12,16 +12,18 @@ heal_amount = 1
 audio = ExtResource("2_ry7a7")
 use_description = ""
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_48gfs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cprxq"]
 atlas = ExtResource("2_pyl3h")
 region = Rect2(32, 32, 16, 16)
 
 [resource]
 script = ExtResource("1_ygqji")
 type = 6
-name = "Mushroom"
-description = "mmmm a mushroom"
-texture = SubResource("AtlasTexture_48gfs")
+item_name = "Mushroom"
 stackable = true
 max_stack_size = 99
+item_damage = 0
+item_defense = 0
+description = "Unfortunately, not very \"trippy man\""
+item_texture = SubResource("AtlasTexture_cprxq")
 effects = Array[ExtResource("1_py6oe")]([SubResource("Resource_bubgy")])

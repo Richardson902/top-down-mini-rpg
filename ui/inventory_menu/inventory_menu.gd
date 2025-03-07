@@ -3,8 +3,10 @@ extends CanvasLayer
 @onready var audio_player: AudioStreamPlayer = $Control/AudioStreamPlayer
 
 
+
 var inv_size : int = 16
-var items_load = [
+
+var items_to_load = [
 	{
 		"path": "res://items/coin/coin.tres",
 		"quantity": 10
@@ -12,6 +14,10 @@ var items_load = [
 	{
 		"path": "res://items/mushroom/mushroom.tres",
 		"quantity": 2
+	},
+	{
+		"path": "res://items/sword/sword.tres",
+		"quantity": 1
 	}
 ]
 
@@ -22,10 +28,10 @@ func _ready() -> void:
 		slot.init(ItemData.Type.MAIN, Vector2(32, 32))
 		%Inv.add_child(slot)
 	
-	for i in items_load.size():
+	for i in items_to_load.size():
 		var item := InventoryItem.new()
-		var item_data = load(items_load[i].path)
-		var quantity = items_load[i].quantity if "quantity" in items_load[i] else 1
+		var item_data = load(items_to_load[i].path)
+		var quantity = items_to_load[i].quantity if "quantity" in items_to_load[i] else 1
 		item.init(item_data, quantity)
 		%Inv.get_child(i).add_child(item)
 

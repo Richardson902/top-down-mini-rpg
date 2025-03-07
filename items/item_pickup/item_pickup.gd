@@ -37,7 +37,7 @@ func item_picked_up() -> void:
 
 func _update_texture() -> void:
 	if item_data and sprite:
-		sprite.texture = item_data.texture
+		sprite.texture = item_data.item_texture
 		sprite.scale = Vector2(item_scale, item_scale)
 
 func _set_item_data(value : ItemData) -> void:

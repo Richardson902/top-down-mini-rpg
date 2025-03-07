@@ -10,17 +10,14 @@ func init(d: ItemData, qty: int = 1) -> void:
 	quantity = qty
 
 func _ready() -> void:
-	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	
-	custom_minimum_size = get_parent().custom_minimum_size * texture_scale
-	
-	size_flags_horizontal = SIZE_SHRINK_CENTER
-	size_flags_vertical = SIZE_SHRINK_CENTER
-	
 	if data:
-		texture = data.texture
-		tooltip_text = "%s\n%s" % [data.name, data.description]
+		expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		custom_minimum_size = get_parent().custom_minimum_size * texture_scale
+		size_flags_horizontal = SIZE_SHRINK_CENTER
+		size_flags_vertical = SIZE_SHRINK_CENTER
+		texture = data.item_texture
+		tooltip_text = "%s\n%s" % [data.item_name, data.description]
 		update_quantity_display()
 
 func update_quantity_display() -> void:
@@ -43,19 +40,13 @@ func update_quantity_display() -> void:
 func update_quantity(qty: int) -> void:
 	quantity = qty
 	update_quantity_display()
-	
-	# Update tooltip
-	#if data:
-		#if data.stackable and quantity > 1:
-			#tooltip_text = "%s\n%s\nQuantity: %d" % [data.name, data.description, quantity]
-		#else:
-	tooltip_text = "%s\n%s" % [data.name, data.description]
+	tooltip_text = "%s\n%s" % [data.item_name, data.description]
 
-func _get_drag_data(at_position : Vector2):
+func _get_drag_data(at_position : Vector2) -> Variant:
 	set_drag_preview(make_drag_preview(at_position))
 	return self
 
-func make_drag_preview(at_position: Vector2):
+func make_drag_preview(at_position: Vector2) -> Control:
 	var t := TextureRect.new()
 	t.texture = texture
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

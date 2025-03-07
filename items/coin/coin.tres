@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://items/item_effects/item_effect.gd" id="1_pv0lk"]
 [ext_resource type="Texture2D" uid="uid://bqnhyu3ahfc3p" path="res://items/coin/MonedaD.png" id="2_3cdpi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltbqf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m57ln"]
 atlas = ExtResource("2_3cdpi")
 region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_a4rrg")
 type = 6
-name = "Coin"
-description = "shiny!"
-texture = SubResource("AtlasTexture_ltbqf")
+item_name = "Coin"
 stackable = true
 max_stack_size = 99
+item_damage = 0
+item_defense = 0
+description = "Shiny!"
+item_texture = SubResource("AtlasTexture_m57ln")
 effects = Array[ExtResource("1_pv0lk")]([])
